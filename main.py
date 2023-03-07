@@ -4,9 +4,9 @@ import pymysql
 import datetime
 import os
 
-USER = os.environ["user"]
-PASSWORD = os.environ["password"]
-DB = os.environ["db"]
+USER = os.environ["USER"]
+PASSWORD = os.environ["PASSWORD"]
+DB = os.environ["DB"]
 
 # List of fb names for all pubs
 PAGE_LIST = ['bergsklubbmasteri', 'Klubbmasteriet', 'openklubbmasteri', 'kfkflygsektionen', 'ProgramRadet',
