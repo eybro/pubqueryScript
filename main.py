@@ -15,12 +15,9 @@ try:
 except KeyError:
     pass
 
-creds = ('erikraaberg@gmail.com','testtest12')
-
-
 def get_events(page):
     d = {}
-    for post in get_posts(page, pages = 2,credentials = creds,options={"allow_extra_requests": False}):
+    for post in get_posts(page, pages = 2,credentials = CREDS,options={"allow_extra_requests": False}):
         post_list = post['text'].split()
         try:
             if(post_list[0] in WORD_LIST):
