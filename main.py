@@ -4,6 +4,10 @@ import pymysql
 import datetime
 import os
 
+USER = os.environ["user"]
+PASSWORD = os.environ["password"]
+DB = os.environ["db"]
+
 # List of fb names for all pubs
 PAGE_LIST = ['bergsklubbmasteri', 'Klubbmasteriet', 'openklubbmasteri', 'kfkflygsektionen', 'ProgramRadet',
              'BBQlubbmasteri',
@@ -55,9 +59,10 @@ def insert(dict):
         if page == 'IndustriellEkonomiKTH':
             title_s = title.split(' ')
             insert_ok = False
-            for word in title_s:
-                if 'pub' in word or 'club' in word or 'PUB' in word or 'CLUB' in word or 'Pub' in word or 'Club' in word:
+            for word in title_s.capitalize():
+                if 'PUB' in word or 'CLUB' in word:
                     insert_ok = True
+                    break
 
         if insert_ok:
             # print(title,page)
@@ -67,8 +72,8 @@ def insert(dict):
             connection.commit()
 
 
-connection = pymysql.connect(host='mysql115.unoeuro.com', user='pubquery_se', password='DhRd9w3zxpGftergFkny',
-                             db='pubquery_se_db', cursorclass=pymysql.cursors.DictCursor)
+connection = pymysql.connect(host='mysql115.unoeuro.com', user=USER, password=PASSWORD,
+                             db=DB, cursorclass=pymysql.cursors.DictCursor)
 
 for page_name in PAGE_LIST:
     insert(get_events(page_name))

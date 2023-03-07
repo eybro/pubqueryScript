@@ -1,8 +1,6 @@
 name: run main.py
 
-on:
-  schedule:
-    - cron: '0 */2 * * *' # Every other hour
+on: workflow_dispatch
 
 jobs:
   build:
@@ -24,6 +22,8 @@ jobs:
 
       - name: execute py script
         env:
-          CREDS: ${{ secrets.CREDS }}
+          USER: ${{ secrets.USER }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          DB: ${{ secrets.DB }}
         run: python main.py
 
