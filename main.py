@@ -10,10 +10,11 @@ PAGE_DICT = {}
 WORD_LIST = ['THIS','TODAY','TOMORROW', 'AT', 'MON,','TUE,','WED,','THU,','FRI,','SAT,','SUN,']
 DAY_DICT = {'MONDAY': 0, 'TUESDAY' : 1., 'WEDNESDAY': 2, 'THURSDAY': 3, 'FRIDAY': 4, 'SATURDAY': 5, 'SUNDAY': 6}
 
-try:
-    CREDS = os.environ["CREDS"]
-except KeyError:
-    pass
+#try:
+    #CREDS = os.environ["CREDS"]
+#except KeyError:
+    #pass
+CREDS = ('erikraaberg@gmail.com','testtest12')
 
 def get_events(page):
     d = {}
