@@ -14,11 +14,11 @@ DAY_DICT = {'MONDAY': 0, 'TUESDAY' : 1., 'WEDNESDAY': 2, 'THURSDAY': 3, 'FRIDAY'
     #CREDS = os.environ["CREDS"]
 #except KeyError:
     #pass
-CREDS = ('erikraaberg@gmail.com','testtest12')
+creds = ('erikraaberg@gmail.com','testtest12')
 
 def get_events(page):
     d = {}
-    for post in get_posts(page, pages = 2,credentials = CREDS,options={"allow_extra_requests": False}):
+    for post in get_posts(page, pages = 2,credentials = creds,options={"allow_extra_requests": False}):
         post_list = post['text'].split()
         try:
             if(post_list[0] in WORD_LIST):
