@@ -59,7 +59,8 @@ def insert(dict):
         if page == 'IndustriellEkonomiKTH':
             title_s = title.split(' ')
             insert_ok = False
-            for word in title_s.capitalize():
+            for word in title_s:
+                word.capitalize()
                 if 'PUB' in word or 'CLUB' in word:
                     insert_ok = True
                     break
