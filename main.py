@@ -7,6 +7,7 @@ import os
 USER = os.environ["USER"]
 PASSWORD = os.environ["PASSWORD"]
 DB = os.environ["DB"]
+COOKIE = os.environ["COOKIE"]
 
 # List of fb names for all pubs
 PAGE_LIST = ['bergsklubbmasteri', 'Klubbmasteriet', 'openklubbmasteri', 'kfkflygsektionen', 'ProgramRadet',
@@ -17,6 +18,8 @@ PAGE_LIST = ['bergsklubbmasteri', 'Klubbmasteriet', 'openklubbmasteri', 'kfkflyg
 WORD_LIST = ['THIS', 'TODAY', 'TOMORROW', 'AT', 'MON,', 'TUE,', 'WED,', 'THU,', 'FRI,', 'SAT,', 'SUN,']
 DAY_DICT = {'MONDAY': 0, 'TUESDAY': 1., 'WEDNESDAY': 2, 'THURSDAY': 3, 'FRIDAY': 4, 'SATURDAY': 5, 'SUNDAY': 6}
 
+with open("cookie-file.txt","w") as file:
+    file.write(COOKIE)
 
 def get_events(page):
     d = {}
