@@ -10,15 +10,9 @@ PAGE_DICT = {}
 WORD_LIST = ['THIS','TODAY','TOMORROW', 'AT', 'MON,','TUE,','WED,','THU,','FRI,','SAT,','SUN,']
 DAY_DICT = {'MONDAY': 0, 'TUESDAY' : 1., 'WEDNESDAY': 2, 'THURSDAY': 3, 'FRIDAY': 4, 'SATURDAY': 5, 'SUNDAY': 6}
 
-#try:
-    #CREDS = os.environ["CREDS"]
-#except KeyError:
-    #pass
-creds = ('erikraaberg@gmail.com','testtest12')
-
 def get_events(page):
     d = {}
-    for post in get_posts(page, pages = 2,credentials = creds,options={"allow_extra_requests": False}):
+    for post in get_posts(page, pages = 2,options={"allow_extra_requests": False}, cookies='cookie-file.txt'):
         post_list = post['text'].split()
         try:
             if(post_list[0] in WORD_LIST):
@@ -48,7 +42,7 @@ def get_events(page):
 
 def insert(dict):
     if(len(dict)>0):
-        #print(dict)
+        print(dict)
         pass
     for date, list in dict.items():
         title = list[0]
