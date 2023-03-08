@@ -28,5 +28,6 @@ jobs:
           PASSWORD: ${{ secrets.PASSWORD }}
           DB: ${{ secrets.DB }}
           COOKIE: ${{ secrets.COOKIE }}
+          HOST: ${{ secrets.HOST }}
         run: python main.py
 

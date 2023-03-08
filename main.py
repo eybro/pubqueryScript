@@ -8,6 +8,7 @@ USER = os.environ["USER"]
 PASSWORD = os.environ["PASSWORD"]
 DB = os.environ["DB"]
 COOKIE = os.environ["COOKIE"]
+HOST = os.environ["HOST"]
 
 # List of fb names for all pubs
 PAGE_LIST = ['bergsklubbmasteri', 'Klubbmasteriet', 'openklubbmasteri', 'kfkflygsektionen', 'ProgramRadet',
@@ -76,7 +77,7 @@ def insert(dict):
             connection.commit()
 
 
-connection = pymysql.connect(host='mysql115.unoeuro.com', user=USER, password=PASSWORD,
+connection = pymysql.connect(host=HOST, user=USER, password=PASSWORD,
                              db=DB, cursorclass=pymysql.cursors.DictCursor)
 
 for page_name in PAGE_LIST:
